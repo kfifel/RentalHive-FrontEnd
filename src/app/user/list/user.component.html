@@ -1,0 +1,36 @@
+<div class="bg-gray-100 p-3">
+
+  <div class="mx-auto bg-white p-6 rounded-md shadow-md">
+
+    <h1 class="text-2xl font-bold mb-4">User Information</h1>
+
+    <table class="min-w-full border border-gray-300">
+      <thead>
+      <tr class="bg-gray-100">
+        <th class="py-2 px-4 border-b">ID</th>
+        <th class="py-2 px-4 border-b">First Name</th>
+        <th class="py-2 px-4 border-b">Last Name</th>
+        <th class="py-2 px-4 border-b">Email</th>
+        <th class="py-2 px-4 border-b">Created At</th>
+        <th class="py-2 px-4 border-b">Verified At</th>
+        <th class="py-2 px-4 border-b">Authorities</th>
+        <th class="py-2 px-4 border-b">Organization Name</th>
+      </tr>
+      </thead>
+      <tbody>
+      <!-- Replace this part with your dynamic data -->
+      <tr  *ngFor="let user of users">
+        <td class="py-2 px-4 border-b">{{ user.id }}</td>
+        <td class="py-2 px-4 border-b">{{ user.firstName }}</td>
+        <td class="py-2 px-4 border-b">{{ user.lastName }}</td>
+        <td class="py-2 px-4 border-b">{{ user.email }}</td>
+        <td class="py-2 px-4 border-b">{{ user.createdAt | date: "YYYY-mm-dd" }}</td>
+        <td class="py-2 px-4 border-b">{{ user.createdAt | date: "YYYY-mm-dd" }}</td>
+        <td class="py-2 px-4 border-b">{{ user.authorities.join(', ') }}</td>
+        <td class="py-2 px-4 border-b">{{ user.organizationName  }}</td>
+      </tr>
+      <!-- Add more rows for additional users -->
+      </tbody>
+    </table>
+  </div>
+</div>
