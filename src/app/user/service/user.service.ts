@@ -4,6 +4,7 @@ import {IUser} from "../user.model";
 import {Observable} from "rxjs";
 import {Pagination} from "../../core/request/request.model";
 import {createRequestOption} from "../../core/request/request.util";
+import {ResponseModel} from "../../core/request/response.model";
 
 @Injectable({
   providedIn: 'root'
@@ -15,9 +16,9 @@ export class UserService {
   constructor(private http: HttpClient) {
   }
 
-  query(req?: Pagination): Observable<HttpResponse<IUser[]>> {
+  query(req?: Pagination): Observable<HttpResponse<ResponseModel<IUser[]>>> {
     const options = createRequestOption(req);
-    return this.http.get<IUser[]>(this.baseUrl, { params: options, observe: 'response' });
+    return this.http.get<ResponseModel<IUser[]>>(this.baseUrl, { params: options, observe: 'response' });
   }
 
   createUser(user: IUser): Observable<IUser> {

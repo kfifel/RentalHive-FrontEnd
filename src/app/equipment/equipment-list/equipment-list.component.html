@@ -1,0 +1,29 @@
+<div class="bg-gray-100 p-3">
+
+  <app-page-title [title]="'Equipments management'" [links]="[{value: 'equipment', route: '/equipments'}]" ></app-page-title>
+
+  <div class="mx-auto bg-white p-6 rounded-md shadow-md">
+
+    <h1 class="text-2xl font-bold mb-4">Equipments ( <span class="text-blue-500">{{ equipmentList?.length }}</span> )</h1>
+
+
+    <table class="min-w-full border border-gray-300">
+      <thead>
+      <tr class="bg-gray-100">
+        <th class="py-2 px-4 border-b">ID</th>
+        <th class="py-2 px-4 border-b">Equipment name</th>
+        <th class="py-2 px-4 border-b">Quantity</th>
+        <th class="py-2 px-4 border-b">Equipment family</th>
+      </tr>
+      </thead>
+      <tbody class="text-center">
+      <tr  *ngFor="let equipment of equipmentList">
+        <td class="py-2 px-4 border-b">{{ equipment.id }}</td>
+        <td class="py-2 px-4 border-b">{{ equipment.name }}</td>
+        <td class="py-2 px-4 border-b">{{ equipment.quantity }}</td>
+        <td class="py-2 px-4 border-b">{{ equipment.family?.name }}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

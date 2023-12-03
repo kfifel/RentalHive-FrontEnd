@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {UserService} from "../service/user.service";
-import {User} from "../user.model";
+import {IUser, User} from "../user.model";
 import {HttpResponse} from "@angular/common/http";
+import {ResponseModel} from "../../core/request/response.model";
 
 @Component({
   selector: 'app-user',
@@ -14,6 +15,8 @@ export class UserComponent implements OnInit {
   price: number = 123.456789;
   users: User[] | null = null;
   isLoading: boolean = false;
+  search: string = '';
+
   constructor(private userService: UserService) { }
 
   ngOnInit(): void {
@@ -25,7 +28,7 @@ export class UserComponent implements OnInit {
     this.userService
       .query()
       .subscribe({
-        next: (res: HttpResponse<User[]>) => {
+        next: (res: HttpResponse<ResponseModel<User[]>>) => {
           this.isLoading = false;
           this.onSuccess(res.body);
         },
@@ -33,7 +36,7 @@ export class UserComponent implements OnInit {
       });
   }
 
-  onSuccess(response: { message: string | null, result: User[] | null, errors: any[] | null } | any): void {
+  onSuccess(response: ResponseModel<IUser[]> | any): void {
     if(response.result)
       this.users = response.result;
   }
