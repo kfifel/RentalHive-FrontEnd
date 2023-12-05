@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {UserComponent} from "./user/list/user.component";
 import {HttpClientModule} from "@angular/common/http";
 import { SidebarComponent } from './shared/sidebar/sidebar.component';
@@ -15,6 +15,8 @@ import { AddComponent } from './user/add/add.component';
 import { LoginComponent } from './login/login.component';
 import { SidebarVComponent } from './shared/sidebar-v/sidebar-v.component';
 import { LayoutsComponent } from './layouts/layouts.component';
+import {MaterialModule} from "./matrial.module";
+import {AppRoutingModule} from "./app.routing.module";
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,17 +35,14 @@ import { LayoutsComponent } from './layouts/layouts.component';
     BrowserModule,
     FormsModule,
     HttpClientModule,
-    RouterModule.forRoot([
-      {path: 'users', component: UserComponent},
-      {path: 'users/add', component: AddComponent},
-      {path: 'equipments', component: EquipmentListComponent},
-      {path: 'home', component: HomeComponent},
-      {path: 'login', component: LoginComponent},
-      {path: '', redirectTo: 'home', pathMatch: 'full'},
-      {path: '**', redirectTo: 'home', pathMatch: 'full'}
-    ])
+    AppRoutingModule,
+    ReactiveFormsModule,
+    MaterialModule
   ],
   providers: [],
+  exports: [
+    PageTitleComponent
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

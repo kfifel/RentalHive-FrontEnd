@@ -1,18 +1,16 @@
 import { Component, OnInit } from '@angular/core';
-import {UserService} from "../service/user.service";
-import {IUser, User} from "../user.model";
+import {IUser, User} from "../../../../user/user.model";
+import {UserService} from "../../../../user/service/user.service";
 import {HttpResponse} from "@angular/common/http";
-import {ResponseModel} from "../../core/request/response.model";
+import {ResponseModel} from "../../../../core/request/response.model";
 
 @Component({
-  selector: 'app-user',
-  templateUrl: './user.component.html',
-  styleUrls: ['./user.component.css']
+  selector: 'app-list',
+  templateUrl: './list.component.html',
+  styleUrls: ['./list.component.css']
 })
-export class UserComponent implements OnInit {
+export class ListComponent implements OnInit {
 
-  dateString: string = '2022-12-01T00:00:00.000Z';
-  price: number = 123.456789;
   users: User[] | null = null;
   isLoading: boolean = false;
   search: string = '';
@@ -41,5 +39,6 @@ export class UserComponent implements OnInit {
     if(response.result)
       this.users = response.result;
   }
+
 
 }

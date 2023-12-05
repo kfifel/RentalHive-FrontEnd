@@ -1,15 +1,17 @@
 import { Component, OnInit } from '@angular/core';
-import {FormBuilder, FormControl, Validators} from "@angular/forms";
-import {UserService} from "../service/user.service";
-import {IUser, User} from "../user.model";
+import {FormBuilder, Validators} from "@angular/forms";
+import {UserService} from "../../../../user/service/user.service";
 import {Router} from "@angular/router";
+import {IUser, User} from "../../../../user/user.model";
 
 @Component({
-  selector: 'app-add',
-  templateUrl: './add.component.html',
-  styleUrls: ['./add.component.css']
+  selector: 'app-update',
+  templateUrl: './update.component.html',
+  styleUrls: ['./update.component.css']
 })
-export class AddComponent implements OnInit {
+export class UpdateComponent implements OnInit {
+
+
   authorities: string[] = [];
   editForm = this.fb.group({
     id: [],
@@ -37,15 +39,15 @@ export class AddComponent implements OnInit {
       alert("Invalid form");
     else
       this.userService.create(this.createFromForm()).subscribe({
-          next: (res) => {
-            console.log('User added successfully', res);
-            this.router.navigate(['/user'])
-          },
-          error: (err: any) => console.log(err)
+        next: (res) => {
+          console.log('User added successfully', res);
+          this.router.navigate(['/user'])
+        },
+        error: (err: any) => console.log(err)
       });
   }
 
- createFromForm(): IUser{
+  createFromForm(): IUser{
     return {
       ...new User(),
       id: this.editForm.get(['id'])!.value,
@@ -58,4 +60,5 @@ export class AddComponent implements OnInit {
       location: this.editForm.get(['location'])!.value
     };
   }
+
 }
