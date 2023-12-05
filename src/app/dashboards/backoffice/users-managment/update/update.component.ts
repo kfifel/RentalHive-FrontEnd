@@ -41,7 +41,7 @@ export class UpdateComponent implements OnInit {
       this.userService.create(this.createFromForm()).subscribe({
         next: (res) => {
           console.log('User added successfully', res);
-          this.router.navigate(['/user'])
+          this.router.navigate(['/admin/users-management'])
         },
         error: (err: any) => console.log(err)
       });
