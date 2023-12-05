@@ -1,0 +1,26 @@
+<!-- client-dashboard.component.html -->
+<mat-drawer-container class="dashboard-container">
+  <!-- Side Navigation Drawer -->
+  <mat-drawer #drawer mode="side" class="sidebar bg-cyan-300">
+    <mat-toolbar color="primary">Dashboard</mat-toolbar>
+    <mat-nav-list>
+      <a mat-list-item routerLink="/" routerLinkActive="active">Home</a>
+      <a mat-list-item routerLink="/profile" routerLinkActive="active">Profile</a>
+      <!-- Add more navigation items as needed -->
+    </mat-nav-list>
+  </mat-drawer>
+
+  <!-- Main Content Area -->
+  <mat-drawer-content>
+    <!-- Top App Bar -->
+    <mat-toolbar color="primary">
+      <button mat-icon-button (click)="drawer.toggle()">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <span>Client Dashboard</span>
+    </mat-toolbar>
+
+    <!-- Main Content (Router Outlet) -->
+    <router-outlet></router-outlet>
+  </mat-drawer-content>
+</mat-drawer-container>

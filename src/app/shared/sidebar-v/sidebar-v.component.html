@@ -1,54 +1,60 @@
-<nav [ngClass]="{'close': isSidebarClosed}">
-  <!-- Header content -->
-  <header>
-    <!-- Your header content here -->
+<p>
+  <mat-toolbar>
+    <span>My Application</span>
+  </mat-toolbar>
+</p>
 
-    <i class='bx bx-chevron-right toggle' (click)="toggleSidebar()"></i>
-  </header>
+<p>
+  <mat-toolbar>
+    <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <span>My App</span>
+    <span class="example-spacer"></span>
+    <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+      <mat-icon>favorite</mat-icon>
+    </button>
+    <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+      <mat-icon>share</mat-icon>
+    </button>
+  </mat-toolbar>
+</p>
 
-  <!-- Sidebar content -->
-  <div class="menu-bar">
-    <div class="menu">
-      <!-- Search box -->
-      <li class="search-box" (click)="openSearch()">
-        <i class='bx bx-search icon'></i>
-        <input type="text" placeholder="Search...">
-      </li>
+<p>
+  <mat-toolbar color="primary">
+    <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <span>My App</span>
+    <span class="example-spacer"></span>
+    <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+      <mat-icon>favorite</mat-icon>
+    </button>
+    <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+      <mat-icon>share</mat-icon>
+    </button>
+  </mat-toolbar>
+</p>
 
-      <!-- Menu links -->
-      <ul class="menu-links">
-        <!-- Your menu links here -->
-        <li class="nav-link">
-          <a href="#">
-            <i class='bx bx-home-alt icon'></i>
-            <span class="text nav-text">Dashboard</span>
-          </a>
-        </li>
-        <!-- Add similar entries for other menu links -->
-      </ul>
-    </div>
+<p>
+  <mat-toolbar color="primary">
+    <mat-toolbar-row>
+      <span>My App</span>
+      <span class="example-spacer"></span>
+      <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+        <mat-icon>menu</mat-icon>
+      </button>
+    </mat-toolbar-row>
 
-    <!-- Bottom content -->
-    <div class="bottom-content">
-      <li>
-        <a href="#">
-          <i class='bx bx-log-out icon' ></i>
-          <span class="text nav-text">Logout</span>
-        </a>
-      </li>
-
-      <!-- Dark mode -->
-      <li class="mode">
-        <div class="sun-moon">
-          <i class='bx bx-moon icon moon' *ngIf="isDarkMode"></i>
-          <i class='bx bx-sun icon sun' *ngIf="!isDarkMode"></i>
-        </div>
-        <span class="mode-text text" [innerText]="isDarkMode ? 'Light mode' : 'Dark mode'"></span>
-
-        <div class="toggle-switch" (click)="toggleDarkMode()">
-          <span class="switch"></span>
-        </div>
-      </li>
-    </div>
-  </div>
-</nav>
+    <mat-toolbar-row>
+      <span>Second Line</span>
+      <span class="example-spacer"></span>
+      <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+        <mat-icon>favorite</mat-icon>
+      </button>
+      <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+        <mat-icon>share</mat-icon>
+      </button>
+    </mat-toolbar-row>
+  </mat-toolbar>
+</p>
