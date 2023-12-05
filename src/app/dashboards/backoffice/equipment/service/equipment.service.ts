@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
-import {Pagination} from "../../core/request/request.model";
 import {Observable} from "rxjs";
 import {HttpClient, HttpResponse} from "@angular/common/http";
-import {createRequestOption} from "../../core/request/request.util";
 import {Equipment, IEquipment} from "../equipment.model";
-import {ResponseModel} from "../../core/request/response.model";
+import {Pagination} from "../../../../core/request/request.model";
+import {ResponseModel} from "../../../../core/request/response.model";
+import {createRequestOption} from "../../../../core/request/request.util";
 
 @Injectable({
   providedIn: 'root'

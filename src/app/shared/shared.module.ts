@@ -4,6 +4,7 @@ import {PageTitleComponent} from "./page-title/page-title.component";
 import {SidebarComponent} from "./sidebar/sidebar.component";
 import {SidebarVComponent} from "./sidebar-v/sidebar-v.component";
 import {MaterialModule} from "../matrial.module";
+import {RouterLinkWithHref} from "@angular/router";
 
 @NgModule({
   declarations: [
@@ -13,12 +14,15 @@ import {MaterialModule} from "../matrial.module";
   ],
   imports: [
     CommonModule,
-    MaterialModule
+    MaterialModule,
+    RouterLinkWithHref
   ],
   exports: [
     PageTitleComponent,
     SidebarComponent,
-    SidebarVComponent
+    SidebarVComponent,
+    CommonModule,
+    MaterialModule,
   ]
 })
 export class SharedModule { }

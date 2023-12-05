@@ -4,6 +4,7 @@ import {LayoutsComponent} from "./layouts.component";
 import {ClientLayoutComponent} from "./client-layout/client-layout.component";
 import {SharedModule} from "../shared/shared.module";
 import {RouterOutlet} from "@angular/router";
+import {BrowserAnimationsModule, NoopAnimationsModule} from "@angular/platform-browser/animations";
 
 @NgModule({
   declarations: [
@@ -13,7 +14,9 @@ import {RouterOutlet} from "@angular/router";
   imports: [
     CommonModule,
     SharedModule,
-    RouterOutlet
+    RouterOutlet,
+    BrowserAnimationsModule,
+    NoopAnimationsModule
   ]
 })
 export class LayoutsModule { }

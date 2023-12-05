@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {EquipmentService} from "../service/equipment.service";
 import {Equipment, IEquipment} from "../equipment.model";
 import {HttpResponse} from "@angular/common/http";
-import {ResponseModel} from "../../core/request/response.model";
+import {ResponseModel} from "../../../../core/request/response.model";
 
 @Component({
   selector: 'app-equipment-list',

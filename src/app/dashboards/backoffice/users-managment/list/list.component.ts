@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {IUser, User} from "../../../../user/user.model";
-import {UserService} from "../../../../user/service/user.service";
+import {IUser, User} from "../user.model";
+import {UserService} from "../service/user-service.service";
 import {HttpResponse} from "@angular/common/http";
 import {ResponseModel} from "../../../../core/request/response.model";
 

@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, Validators} from "@angular/forms";
-import {UserService} from "../../../../user/service/user.service";
 import {Router} from "@angular/router";
-import {IUser, User} from "../../../../user/user.model";
+import {UserService} from "../service/user-service.service";
+import {IUser, User} from "../user.model";
 
 @Component({
   selector: 'app-update',
