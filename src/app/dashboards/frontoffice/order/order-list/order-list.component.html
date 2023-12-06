@@ -1,1 +1,55 @@
-<p>order-list works!</p>
+<section>
+  <app-page-title [title] = "'Creating New Order'"></app-page-title>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <mat-horizontal-stepper linear #stepper>
+          <mat-step [stepControl]="firstFormGroup">
+            <form [formGroup]="firstFormGroup">
+              <ng-template matStepLabel>Fill out your name</ng-template>
+              <div class="flex justify-around">
+                <div>
+                  <h5>Start Date</h5>
+                  <mat-card class="demo-inline-calendar-card">
+                    <mat-calendar formControlName="startDate" [(selected)]="startDate"></mat-calendar>
+                  </mat-card>
+                </div>
+                <div>
+                  <h5>End Date</h5>
+                  <mat-card class="demo-inline-calendar-card">
+                    <mat-calendar formControlName="endDate" [(selected)]="endDate"></mat-calendar>
+                  </mat-card>
+                </div>
+              </div>
+              <div>
+                <button mat-button matStepperNext (click)="fetchEquipmentAvailable()">Next</button>
+              </div>
+            </form>
+          </mat-step>
+          <mat-step [stepControl]="secondFormGroup" label="Fill out your address">
+            <form [formGroup]="secondFormGroup">
+              <mat-form-field appearance="fill">
+                <mat-label>Address</mat-label>
+                <input matInput formControlName="secondCtrl" placeholder="Ex. 1 Main St, New York, NY"
+                       >
+              </mat-form-field>
+              <div>
+                <button mat-button matStepperPrevious>Back</button>
+                <button mat-button matStepperNext>Next</button>
+              </div>
+            </form>
+          </mat-step>
+          <mat-step>
+            <ng-template matStepLabel>Done</ng-template>
+            <p>You are now done.</p>
+            <div>
+              <button mat-button matStepperPrevious>Back</button>
+            </div>
+          </mat-step>
+        </mat-horizontal-stepper>
+
+      </div>
+    </div>
+  </div>
+</section>

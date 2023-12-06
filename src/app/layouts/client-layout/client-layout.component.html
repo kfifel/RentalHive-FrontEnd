@@ -1,12 +1,11 @@
 <!-- client-dashboard.component.html -->
 <mat-drawer-container class="dashboard-container">
   <!-- Side Navigation Drawer -->
-  <mat-drawer #drawer mode="side" class="sidebar bg-cyan-300">
+  <mat-drawer #drawer mode="side" class="sidebar shadow">
     <mat-toolbar color="primary">Dashboard</mat-toolbar>
     <mat-nav-list>
-      <a mat-list-item routerLink="/" routerLinkActive="active">Home</a>
-      <a mat-list-item routerLink="/profile" routerLinkActive="active">Profile</a>
-      <!-- Add more navigation items as needed -->
+      <a mat-list-item routerLink="/client">Home</a>
+      <a mat-list-item routerLink="/client/order" routerLinkActive="active">Order</a>
     </mat-nav-list>
   </mat-drawer>
 
@@ -14,13 +13,19 @@
   <mat-drawer-content>
     <!-- Top App Bar -->
     <mat-toolbar color="primary">
-      <button mat-icon-button (click)="drawer.toggle()">
-        <mat-icon>menu</mat-icon>
+      <button mat-icon-button (click)="drawer.toggle(); toggleDrawer();"
+      class="btn-show-sidebar">
+        <i class='bx bx-minus' *ngIf="drawerState == 'closed'"></i>
+        <i class='bx bx-plus' *ngIf="drawerState == 'open'"></i>
       </button>
-      <span>Client Dashboard</span>
-    </mat-toolbar>
 
-    <!-- Main Content (Router Outlet) -->
-    <router-outlet></router-outlet>
+      <span>Client Dashboard</span>
+
+    </mat-toolbar>
+    <div class="container">
+
+      <router-outlet></router-outlet>
+
+    </div>
   </mat-drawer-content>
 </mat-drawer-container>
