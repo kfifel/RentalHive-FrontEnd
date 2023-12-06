@@ -1,7 +1,7 @@
 <!-- client-dashboard.component.html -->
 <mat-drawer-container class="dashboard-container">
   <!-- Side Navigation Drawer -->
-  <mat-drawer #drawer mode="side" class="sidebar shadow">
+  <mat-drawer #drawer mode="side" class="sidebar shadow" [opened]="true">
     <mat-toolbar color="primary">Dashboard</mat-toolbar>
     <mat-nav-list>
       <a mat-list-item routerLink="/client">Home</a>
@@ -15,14 +15,14 @@
     <mat-toolbar color="primary">
       <button mat-icon-button (click)="drawer.toggle(); toggleDrawer();"
       class="btn-show-sidebar">
-        <i class='bx bx-minus' *ngIf="drawerState == 'closed'"></i>
-        <i class='bx bx-plus' *ngIf="drawerState == 'open'"></i>
+        <i class='bx bx-minus' *ngIf="drawerState == 'open'"></i>
+        <i class='bx bx-plus' *ngIf="drawerState == 'closed'"></i>
       </button>
 
       <span>Client Dashboard</span>
 
     </mat-toolbar>
-    <div class="container">
+    <div class="w-full">
 
       <router-outlet></router-outlet>
 
