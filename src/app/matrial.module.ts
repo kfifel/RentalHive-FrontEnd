@@ -16,6 +16,7 @@ import {MatSlideToggleModule} from "@angular/material/slide-toggle";
 import {MatTableModule} from "@angular/material/table";
 import {MatSortModule} from "@angular/material/sort";
 import {MatPaginatorModule} from "@angular/material/paginator";
+import {MatProgressBarModule} from "@angular/material/progress-bar";
 
 
 
@@ -37,7 +38,9 @@ import {MatPaginatorModule} from "@angular/material/paginator";
     MatSlideToggleModule,
     MatTableModule,
     MatSortModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatIconModule,
+    MatProgressBarModule
   ]
 })
 export class MaterialModule { }

@@ -1,1 +1,77 @@
-<p>create-order works!</p>
+<section>
+  <app-page-title [title] = "'Creating New Order'"></app-page-title>
+  <div class="">
+    <div class="row">
+      <div class="col-md-12">
+        <mat-horizontal-stepper linear #stepper>
+          <mat-step [stepControl]="firstFormGroup"  [editable]="false">
+            <form [formGroup]="firstFormGroup" (ngSubmit)="fetchEquipmentAvailable()">
+              <ng-template matStepLabel>Fill out start and end dates</ng-template>
+              <div class="flex justify-around m-2">
+                <div>
+                  <h5 class="m-2">Start Date</h5>
+                  <span *ngIf="errors.length">
+                    {{ getError("dateStart") }}
+                  </span>
+                  <mat-card class="demo-inline-calendar-card">
+                    <mat-calendar [(selected)]="startDate" (selectedChange)="updateStartDate($event)"></mat-calendar>
+                  </mat-card>
+                </div>
+                <div>
+                  <h5>End Date</h5>
+                  <mat-card class="demo-inline-calendar-card">
+                    <mat-calendar [(selected)]="endDate"  (selectedChange)="updateEndDate($event)"></mat-calendar>
+                  </mat-card>
+                </div>
+              </div>
+              <div>
+                <button mat-button
+                        class="bg-[#3F51B5] text-white"
+                        [disabled]="firstFormGroup.invalid"
+                >Next</button>
+              </div>
+            </form>
+          </mat-step>
+          <mat-step [stepControl]="reservationFormGroup" label="Select equipment" [editable]="false">
+            <form [formGroup]="reservationFormGroup" (ngSubmit)="onReserve()">
+              <div>
+                <button mat-button matStepperPrevious>Back</button>
+                <button mat-button type="submit" [disabled]="toReserveEquipments.size <= 0 ">Next</button>
+              </div>
+
+              <div class="flex">
+
+                <mat-card class="w-1/4 gap-1 m-2" *ngFor="let equipment of equipmentsAvailable">
+                  <mat-card-header>{{ equipment.name }}</mat-card-header>
+                  <mat-card-actions >family :{{ equipment.family.name }}</mat-card-actions>
+                  <mat-card-content>quantity available: {{ equipment.quantity}}</mat-card-content>
+
+                  <mat-form-field appearance="fill">
+                    <mat-label>Quantity</mat-label>
+                    <input matInput type="number" [max]="equipment.quantity" (keyup)="addReservation($event.target, equipment, equipment.id)">
+                  </mat-form-field>
+                </mat-card>
+
+              </div>
+
+            </form>
+          </mat-step>
+          <mat-step  [editable]="false">
+            <ng-template matStepLabel>
+              <div class="custom-step-label">
+                <mat-icon class="custom-icon">done</mat-icon>
+                <mat-label>done</mat-label>
+              </div>
+            </ng-template>
+
+            <div class="custom-step-content">
+              <p class="custom-message">You have successfully created a request with Rental Hive!</p>
+              <!-- Add any additional content or styling as needed -->
+            </div>
+          </mat-step>
+        </mat-horizontal-stepper>
+        <mat-progress-bar mode="buffer"></mat-progress-bar>
+      </div>
+    </div>
+  </div>
+</section>

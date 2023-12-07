@@ -13,12 +13,11 @@
   <mat-drawer-content>
     <!-- Top App Bar -->
     <mat-toolbar color="primary">
-      <button mat-icon-button (click)="drawer.toggle(); toggleDrawer();"
-      class="btn-show-sidebar">
-        <i class='bx bx-minus' *ngIf="drawerState == 'open'"></i>
-        <i class='bx bx-plus' *ngIf="drawerState == 'closed'"></i>
+      <button mat-icon-button
+              (click)="drawer.toggle(); toggleDrawer();"
+      class="hover:bg-blue-600">
+        <mat-icon>{{ drawerState === 'open' ? 'menu' : 'close' }}</mat-icon>
       </button>
-
       <span>Client Dashboard</span>
 
     </mat-toolbar>

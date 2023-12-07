@@ -7,6 +7,7 @@ import {RouterModule} from "@angular/router";
 import { UpdateComponent } from './update/update.component';
 import { userManagementRoutes } from "./user-management.route";
 import {SharedModule} from "../../../shared/shared.module";
+import {MaterialModule} from "../../../matrial.module";
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import {SharedModule} from "../../../shared/shared.module";
     ReactiveFormsModule,
     RouterModule.forChild(userManagementRoutes),
     FormsModule,
-    SharedModule
+    SharedModule,
+    MaterialModule
   ]
 })
 export class UsersManagementModule { }

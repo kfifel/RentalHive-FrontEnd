@@ -9,7 +9,7 @@ import {equipmentRoutes} from "./equipment.route";
 @NgModule({
   declarations: [
     EquipmentListComponent,
-    EquipmentFamilyComponent
+    EquipmentFamilyComponent,
   ],
   imports: [
     SharedModule,

@@ -4,9 +4,10 @@ import {PageTitleComponent} from "./page-title/page-title.component";
 import {SidebarComponent} from "./sidebar/sidebar.component";
 import {SidebarVComponent} from "./sidebar-v/sidebar-v.component";
 import {MaterialModule} from "../matrial.module";
-import {RouterLinkWithHref} from "@angular/router";
+import {RouterLinkWithHref, RouterModule} from "@angular/router";
 import {ReactiveFormsModule} from "@angular/forms";
 import {NgToastModule} from "ng-angular-popup";
+import { AlertComponent } from './alert/alert.component';
 
 
 @NgModule({
@@ -14,19 +15,22 @@ import {NgToastModule} from "ng-angular-popup";
     PageTitleComponent,
     SidebarComponent,
     SidebarVComponent,
+    AlertComponent,
   ],
   imports: [
     CommonModule,
     MaterialModule,
     RouterLinkWithHref,
-    NgToastModule
+    NgToastModule,
+    RouterModule
   ],
   exports: [
     PageTitleComponent,
     SidebarComponent,
     SidebarVComponent,
     CommonModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AlertComponent
   ],
   providers: [DatePipe],
 })
