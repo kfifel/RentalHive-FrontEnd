@@ -1,0 +1,30 @@
+<div class="bg-gray-100 p-3">
+
+  <app-page-title [title]="'Orders management'" [links]="routesLinks" ></app-page-title>
+
+  <div class="mx-auto bg-white p-6 rounded-md shadow-md">
+
+    <h1 class="text-2xl font-bold mb-4">Orders ( <span class="text-blue-500">{{ orders?.length }}</span> )</h1>
+
+
+    <app-alert content="orders is empty" title="Info!" *ngIf="!orders?.length"></app-alert>
+    <table class="min-w-full border border-gray-300" *ngIf="orders?.length">
+      <thead>
+      <tr class="bg-gray-100">
+        <th class="py-2 px-4 border-b">ID</th>
+        <th class="py-2 px-4 border-b">rent start date</th>
+        <th class="py-2 px-4 border-b">rent end date</th>
+        <th class="py-2 px-4 border-b">number of equipment reserved</th>
+      </tr>
+      </thead>
+      <tbody class="text-center">
+      <tr  *ngFor="let order of orders">
+        <td class="py-2 px-4 border-b">{{ order.id }}</td>
+        <td class="py-2 px-4 border-b">{{ order.rentStartDate | date: "yyyy-MM-dd hh:mm:ss" }}</td>
+        <td class="py-2 px-4 border-b">{{ order.rentEndDate }}</td>
+        <td class="py-2 px-4 border-b">{{ order.orderEquipments.length }}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
