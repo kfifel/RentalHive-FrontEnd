@@ -1,1 +1,61 @@
-<p>order-list works!</p>
+<section>
+  <app-page-title [title] = "'Creating New Order'"></app-page-title>
+  <div class="">
+    <div class="row">
+      <div class="col-md-12">
+        <mat-horizontal-stepper linear #stepper>
+          <mat-step [stepControl]="firstFormGroup">
+            <form [formGroup]="firstFormGroup" (ngSubmit)="fetchEquipmentAvailable()">
+              <ng-template matStepLabel>Fill out start and end dates</ng-template>
+              <div class="flex justify-around m-2">
+                <div>
+                  <h5>Start Date</h5>
+                  <mat-card class="demo-inline-calendar-card">
+                    <mat-calendar [(selected)]="startDate" (selectedChange)="updateStartDate($event)"></mat-calendar>
+                  </mat-card>
+                </div>
+                <div>
+                  <h5>End Date</h5>
+                  <mat-card class="demo-inline-calendar-card">
+                    <mat-calendar [(selected)]="endDate"  (selectedChange)="updateEndDate($event)"></mat-calendar>
+                  </mat-card>
+                </div>
+              </div>
+              <div>
+                <button mat-button matStepperNext class="bg-[#3F51B5] text-white">Next</button>
+              </div>
+            </form>
+          </mat-step>
+          <mat-step [stepControl]="secondFormGroup" label="Select equipment">
+            <form [formGroup]="secondFormGroup">
+              <div>
+                <button mat-button matStepperPrevious>Back</button>
+                <button mat-button matStepperNext>Next</button>
+              </div>
+
+              <div class="flex">
+
+                <mat-card class="w-1/4 gap-1 m-2" *ngFor="let equipment of equipmentsAvailable">
+                  <mat-card-header>{{ equipment.name }}</mat-card-header>
+                  <mat-card-actions >family :{{ equipment.equipmentFamily?.name }}</mat-card-actions>
+                  <mat-card-content>quantity available: {{ equipment.quantity}}</mat-card-content>
+
+                </mat-card>
+
+              </div>
+
+            </form>
+          </mat-step>
+          <mat-step>
+            <ng-template matStepLabel>Done</ng-template>
+            <p>You are now done.</p>
+            <div>
+              <button mat-button matStepperPrevious>Back</button>
+            </div>
+          </mat-step>
+        </mat-horizontal-stepper>
+
+      </div>
+    </div>
+  </div>
+</section>

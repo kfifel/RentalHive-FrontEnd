@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import {NgModule} from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
@@ -10,6 +10,9 @@ import {MaterialModule} from "./matrial.module";
 import {AppRoutingModule} from "./app.routing.module";
 import {SharedModule} from "./shared/shared.module";
 import { LayoutsModule } from './layouts/layouts.module';
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {NgToastModule} from "ng-angular-popup";
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -17,6 +20,7 @@ import { LayoutsModule } from './layouts/layouts.module';
     LoginComponent,
   ],
   imports: [
+    NgToastModule,
     BrowserModule,
     FormsModule,
     HttpClientModule,
@@ -24,7 +28,8 @@ import { LayoutsModule } from './layouts/layouts.module';
     ReactiveFormsModule,
     MaterialModule,
     LayoutsModule,
-    SharedModule
+    SharedModule,
+    BrowserAnimationsModule,
   ],
   providers: [],
   exports: [],
