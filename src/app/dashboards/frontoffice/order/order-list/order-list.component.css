@@ -1,12 +1,12 @@
-.mat-stepper-horizontal {
-  margin-top: 8px;
+table {
+  width: 100%;
 }
 
-.mat-form-field {
-  margin-top: 16px;
+.mat-mdc-form-field {
+  font-size: 14px;
+  width: 100%;
 }
 
-
-.demo-inline-calendar-card {
-  width: 300px;
+td, th {
+  width: 25%;
 }
