@@ -1,8 +1,8 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FormGroup, FormBuilder, Validators} from "@angular/forms";
 import {EquipmentService} from "../../../backoffice/equipment/service/equipment.service";
 import {DatePipe} from "@angular/common";
-import {MatStepper} from "@angular/material/stepper";
+import {Equipment} from "../../../backoffice/equipment/equipment.model";
 
 @Component({
   selector: 'app-order-list',
@@ -19,7 +19,7 @@ export class OrderListComponent implements OnInit {
     });
     startDate: Date | null = null;
     endDate: Date | null = null;
-    @ViewChild('stepper') stepper!: MatStepper;
+    equipmentsAvailable: Equipment[] = [];
     constructor(private _formBuilder: FormBuilder,
                 private equipmentService: EquipmentService,
                 private datePipe: DatePipe
@@ -45,12 +45,21 @@ export class OrderListComponent implements OnInit {
     this.equipmentService.available({startDate: isoStartDate, endDate: isoEndDate})
       .subscribe({
         next: (response) => {
-          console.log(response);
-          this.stepper.next();
+          if(response.result)
+            this.equipmentsAvailable = response.result;
         },
         error: (error) => {
           console.log(error);
         }
       });
+  }
+
+  updateStartDate(event: any): void {
+    this.firstFormGroup.get('startDate')?.setValue(event);
+  }
+
+  updateEndDate(event: any) {
+    this.firstFormGroup.get('endDate')?.setValue(event);
+    console.log(event)
   }
 }

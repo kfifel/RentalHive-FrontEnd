@@ -6,13 +6,15 @@ import {SidebarVComponent} from "./sidebar-v/sidebar-v.component";
 import {MaterialModule} from "../matrial.module";
 import {RouterLinkWithHref} from "@angular/router";
 import {ReactiveFormsModule} from "@angular/forms";
+import { AlertComponent } from './alert/alert.component';
 
 
 @NgModule({
   declarations: [
     PageTitleComponent,
     SidebarComponent,
-    SidebarVComponent
+    SidebarVComponent,
+    AlertComponent
   ],
   imports: [
     CommonModule,

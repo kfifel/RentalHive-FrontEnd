@@ -4,7 +4,7 @@ export interface IEquipment {
   id: number;
   name: string;
   quantity: number;
-  family: EquipmentFamily | null;
+  equipmentFamily: EquipmentFamily | null;
 }
 
 export class Equipment implements IEquipment {
@@ -12,7 +12,7 @@ export class Equipment implements IEquipment {
     public id: number,
     public name: string,
     public quantity: number,
-    public family: EquipmentFamily | null
+    public equipmentFamily: EquipmentFamily | null
   ) {}
 
 }

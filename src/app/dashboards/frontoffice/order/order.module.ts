@@ -7,6 +7,7 @@ import {orderRoutes} from "./order.route";
 import { CreateOrderComponent } from './create-order/create-order.component';
 import {SharedModule} from "../../../shared/shared.module";
 import {MaterialModule} from "../../../matrial.module";
+import {FormsModule} from "@angular/forms";
 
 
 
@@ -21,6 +22,7 @@ import {MaterialModule} from "../../../matrial.module";
     SharedModule,
     MaterialModule,
     RouterModule.forChild(orderRoutes),
+    FormsModule,
   ]
 })
 export class OrderModule { }
