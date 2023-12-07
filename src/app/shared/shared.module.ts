@@ -6,7 +6,7 @@ import {SidebarVComponent} from "./sidebar-v/sidebar-v.component";
 import {MaterialModule} from "../matrial.module";
 import {RouterLinkWithHref} from "@angular/router";
 import {ReactiveFormsModule} from "@angular/forms";
-import { AlertComponent } from './alert/alert.component';
+import {NgToastModule} from "ng-angular-popup";
 
 
 @NgModule({
@@ -14,12 +14,12 @@ import { AlertComponent } from './alert/alert.component';
     PageTitleComponent,
     SidebarComponent,
     SidebarVComponent,
-    AlertComponent
   ],
   imports: [
     CommonModule,
     MaterialModule,
-    RouterLinkWithHref
+    RouterLinkWithHref,
+    NgToastModule
   ],
   exports: [
     PageTitleComponent,
